@@ -1,5 +1,8 @@
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
+package org.foundation.framework.mcl.persistence;
+
+
+
+import org.hibernate.SessionFactory;
 
 /**
  * Copyright (C) 2013 by Scott Byrns
@@ -14,12 +17,16 @@ import org.junit.runners.Suite;
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  * <p/>
- * Created 2/8/13 1:27 AM
+ * Created 1/31/13 2:03 PM
  */
-@RunWith(Suite.class)
-@Suite.SuiteClasses({
-
-              })
-public class TestSuite
+public class HibernateUtilities
 {
+    private static final SessionFactory sessionFactory = SessionFactoryBuilder.build();
+
+
+    public static SessionFactory getSessionFactory()
+    {
+
+        return sessionFactory;
+    }
 }

@@ -1,5 +1,8 @@
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
+package org.good.tech.foundation.model;
+
+
+
+import org.good.tech.foundation.ml.Label;
 
 /**
  * Copyright (C) 2013 by Scott Byrns
@@ -14,12 +17,39 @@ import org.junit.runners.Suite;
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  * <p/>
- * Created 2/8/13 1:27 AM
+ * Created 2/8/13 1:43 AM
  */
-@RunWith(Suite.class)
-@Suite.SuiteClasses({
-
-              })
-public class TestSuite
+public class Foundation
 {
+    private String id;
+    private Label  name;
+
+
+
+    public String getId()
+    {
+
+        return id;
+    }
+
+
+    public void setId(String id)
+    {
+
+        this.id = id;
+    }
+
+
+    public Label getName()
+    {
+
+        return name;
+    }
+
+
+    public void setName(Label name)
+    {
+
+        this.name = name;
+    }
 }

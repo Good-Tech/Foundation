@@ -1,5 +1,6 @@
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
+package org.goodeducation.physics;
+
+
 
 /**
  * Copyright (C) 2013 by Scott Byrns
@@ -14,12 +15,38 @@ import org.junit.runners.Suite;
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  * <p/>
- * Created 2/8/13 1:27 AM
+ * Created 2/1/13 1:37 AM
  */
-@RunWith(Suite.class)
-@Suite.SuiteClasses({
-
-              })
-public class TestSuite
+public class Density
 {
+    private double value;
+    private double distribution;
+
+
+    public double getValue()
+    {
+
+        return value;
+    }
+
+
+    public void setValue(double value)
+    {
+
+        this.value = value;
+    }
+
+
+    public double getDistribution()
+    {
+
+        return distribution;
+    }
+
+
+    public void setDistribution(double distribution)
+    {
+
+        this.distribution = distribution;
+    }
 }

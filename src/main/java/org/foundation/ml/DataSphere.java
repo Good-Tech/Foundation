@@ -1,5 +1,6 @@
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
+package org.foundation.ml;
+
+
 
 /**
  * Copyright (C) 2013 by Scott Byrns
@@ -14,12 +15,8 @@ import org.junit.runners.Suite;
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  * <p/>
- * Created 2/8/13 1:27 AM
+ * Created 2/6/13 10:13 PM
  */
-@RunWith(Suite.class)
-@Suite.SuiteClasses({
-
-              })
-public class TestSuite
+public class DataSphere
 {
 }

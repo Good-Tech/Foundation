@@ -1,5 +1,6 @@
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
+package org.goodgod.controller;
+
+
 
 /**
  * Copyright (C) 2013 by Scott Byrns
@@ -14,12 +15,14 @@ import org.junit.runners.Suite;
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  * <p/>
- * Created 2/8/13 1:27 AM
+ * Created 2/5/13 12:48 AM
  */
-@RunWith(Suite.class)
-@Suite.SuiteClasses({
-
-              })
-public class TestSuite
+@java.lang.annotation.Inherited
+@java.lang.annotation.Target({java.lang.annotation.ElementType.TYPE, java.lang.annotation.ElementType.METHOD})
+@java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
+public @interface MessagePayloadHandler
 {
+    String documentation ();
+    String group() default "GLOBAL";
+    String channel() default "PUBLIC";
 }

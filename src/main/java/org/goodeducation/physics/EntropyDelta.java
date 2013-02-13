@@ -1,10 +1,14 @@
-package org.good.tech.foundation.model;
+package org.goodeducation.physics;
 
 
-
-import org.good.tech.foundation.ml.Label;
 
 /**
+ * A representation of the energy delta between an anode and a cathode.
+ * This is descried as a pair of waves representing the angular momentum, wavelength, velocity, frequency
+ *
+ * Deltas are calculated as a the combined wave function of the anode and cathode.
+ *
+ *
  * Copyright (C) 2013 by Scott Byrns
  * http://github.com/scottbyrns
  * <p/>
@@ -17,12 +21,13 @@ import org.good.tech.foundation.ml.Label;
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  * <p/>
- * Created 2/8/13 1:43 AM
+ * Created 1/28/13 3:26 AM
  */
-public class Foundation
+public class EntropyDelta
 {
     private String id;
-    private Label  name;
+    private Wave anode;
+    private Wave cathode;
 
 
     public String getId()
@@ -39,16 +44,30 @@ public class Foundation
     }
 
 
-    public Label getName()
+    public Wave getAnode()
     {
 
-        return name;
+        return anode;
     }
 
 
-    public void setName(Label name)
+    public void setAnode(Wave anode)
     {
 
-        this.name = name;
+        this.anode = anode;
+    }
+
+
+    public Wave getCathode()
+    {
+
+        return cathode;
+    }
+
+
+    public void setCathode(Wave cathode)
+    {
+
+        this.cathode = cathode;
     }
 }

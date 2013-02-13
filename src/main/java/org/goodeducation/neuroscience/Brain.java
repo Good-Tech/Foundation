@@ -1,5 +1,6 @@
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
+package org.goodeducation.neuroscience;
+
+
 
 /**
  * Copyright (C) 2013 by Scott Byrns
@@ -14,12 +15,38 @@ import org.junit.runners.Suite;
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  * <p/>
- * Created 2/8/13 1:27 AM
+ * Created 1/29/13 6:14 PM
  */
-@RunWith(Suite.class)
-@Suite.SuiteClasses({
-
-              })
-public class TestSuite
+public class Brain
 {
+    private String id;
+    private NeuralMap neuralMap;
+
+
+    public String getId()
+    {
+
+        return id;
+    }
+
+
+    public void setId(String id)
+    {
+
+        this.id = id;
+    }
+
+
+    public NeuralMap getNeuralMap()
+    {
+
+        return neuralMap;
+    }
+
+
+    public void setNeuralMap(NeuralMap neuralMap)
+    {
+
+        this.neuralMap = neuralMap;
+    }
 }
