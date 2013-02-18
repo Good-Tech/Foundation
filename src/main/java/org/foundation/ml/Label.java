@@ -6,10 +6,6 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 import org.foundation.Foundation;
 import org.foundation.warehouse.ActivePersistenceImpl;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Transient;
 import java.util.List;
 
 /**
@@ -27,18 +23,14 @@ import java.util.List;
  * <p/>
  * Created 2/1/13 3:05 AM
  */
-@Entity
 public class Label extends Foundation
 {
 
-    @Id
-    @Column(unique = true)
     private String id;
 
     private String value;
 
     @JsonIgnore
-    @Transient
     private Label name;
 
 
@@ -58,21 +50,18 @@ public class Label extends Foundation
 
     public Label()
     {
-
         registerListnersOfClass(this);
     }
 
 
     public String getId()
     {
-
         return id;
     }
 
 
     public void setId(String id)
     {
-
         this.id = id;
     }
 
@@ -86,7 +75,6 @@ public class Label extends Foundation
 
     public void setValue(String value)
     {
-
         this.value = value;
     }
 
@@ -109,7 +97,7 @@ public class Label extends Foundation
             label = new Label();
             label.setValue(value);
 
-            ActivePersistenceImpl.getInstance().create(label);
+//            ActivePersistenceImpl.getInstance().create(label);
         }
 
         label.setName(label);
@@ -117,15 +105,21 @@ public class Label extends Foundation
         return label;
     }
 
+    @Deprecated
     public static <Foundational extends Foundation> Foundation getFoundationsByLabel (Class<? extends Foundation> type, String label) {
 
         return ActivePersistenceImpl.getInstance().findByLabel(type, label);
 
     }
 
+    @Deprecated
     public static <Foundational extends Foundation> List<Foundational> getFoundationsByLabel (String type, String label) {
 
         return ActivePersistenceImpl.getInstance().findByLabel(type, label);
 
+    }
+
+    public Long getVersion() {
+        return 2L;
     }
 }

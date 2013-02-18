@@ -196,6 +196,27 @@ public class NLP
 
     }
 
+    public List<String> getPartsOfSpeach(String statement) {
+        statement = statement.replace("-",
+                                      " ");
+        String[] asdf = tokenizer.tokenize(statement);
+
+        Sequence topSequences[] = tagger.topKSequences(asdf);
+
+        return topSequences[0].getOutcomes();
+    }
+
+    public List<String> getTokens(String statement) {
+        statement = statement.replace("-",
+                                      " ");
+        String[] asdf = tokenizer.tokenize(statement);
+        List<String> tokens = new ArrayList<String>();
+        for (String str : asdf) {
+            tokens.add(str);
+        }
+
+        return tokens;
+    }
 
     public String partsOfSpeach(String statement)
     {

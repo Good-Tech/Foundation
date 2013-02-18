@@ -1,5 +1,12 @@
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
+package org.foundation.ml;
+
+
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertNotNull;
 
 /**
  * Copyright (C) 2013 by Scott Byrns
@@ -14,12 +21,33 @@ import org.junit.runners.Suite;
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  * <p/>
- * Created 2/8/13 1:27 AM
+ * Created 2/17/13 11:10 PM
  */
-@RunWith(Suite.class)
-@Suite.SuiteClasses({
-        PersistenceTestSuite.class
-              })
-public class TestSuite
+public class LabelTest
 {
+
+    private Label label;
+
+    @Before
+    public void setUp() throws Exception
+    {
+        label = new Label();
+    }
+
+
+    @Test
+    public void testCreatingLabel() throws Exception
+    {
+
+        Label label = Label.create("Test Label");
+        assertNotNull("Our label should have been created.", label);
+
+    }
+
+
+    @After
+    public void tearDown() throws Exception
+    {
+        label = null;
+    }
 }

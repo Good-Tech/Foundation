@@ -1,3 +1,4 @@
+import org.foundation.warehouse.ActivePersistenceTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -14,12 +15,14 @@ import org.junit.runners.Suite;
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  * <p/>
- * Created 2/8/13 1:27 AM
+ * Created 2/17/13 11:05 PM
  */
+
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        PersistenceTestSuite.class
+                            ActivePersistenceTest.class
               })
-public class TestSuite
+public class PersistenceTestSuite
 {
+
 }
