@@ -29,7 +29,7 @@ public class ActivePersistenceTest
     @Before
     public void setUp() throws Exception
     {
-        persistence = ActivePersistenceImpl.getInstance();
+//        persistence = ActivePersistenceImpl.getInstance();
     }
 
 
