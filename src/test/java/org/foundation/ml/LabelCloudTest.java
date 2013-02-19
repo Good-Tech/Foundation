@@ -2,6 +2,9 @@ package org.foundation.ml;
 
 
 
+import org.foundation.ml.nlp.Label;
+import org.foundation.ml.nlp.LabelClassification;
+import org.foundation.ml.nlp.LabelCloud;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

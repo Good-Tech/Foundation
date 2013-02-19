@@ -3,7 +3,7 @@ package org.foundation;
 
 
 import org.codehaus.jackson.annotate.JsonIgnore;
-import org.foundation.ml.Label;
+import org.foundation.ml.nlp.Label;
 import org.foundation.warehouse.ActivePersistenceImpl;
 import org.goodeducation.language.LevenshteinDistance;
 import org.goodeducation.language.Sentence;

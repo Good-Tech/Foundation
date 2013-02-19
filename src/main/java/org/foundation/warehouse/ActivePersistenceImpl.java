@@ -4,7 +4,7 @@ package org.foundation.warehouse;
 
 import org.foundation.Foundation;
 import org.foundation.framework.mcl.persistence.HibernateUtilities;
-import org.foundation.ml.Label;
+import org.foundation.ml.nlp.Label;
 import org.hibernate.PropertyValueException;
 import org.hibernate.SQLQuery;
 import org.hibernate.Transaction;

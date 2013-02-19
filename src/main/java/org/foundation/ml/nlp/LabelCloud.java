@@ -1,6 +1,8 @@
-package org.foundation.ml;
+package org.foundation.ml.nlp;
 
 
+
+import org.foundation.ml.NLP;
 
 import java.util.*;
 

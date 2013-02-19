@@ -1,10 +1,13 @@
-package org.foundation.ml;
+package org.foundation.ml.nlp;
 
 
 
-import org.foundation.Foundation;
+import org.foundation.ml.nlp.Label;
 
 /**
+ * Classify a label by a given tokens part of speech.
+ *
+ *
  * Copyright (C) 2013 by Scott Byrns
  * http://github.com/scottbyrns
  * <p/>
@@ -17,53 +20,53 @@ import org.foundation.Foundation;
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  * <p/>
- * Created 2/5/13 12:12 AM
+ * Created 2/18/13 2:41 AM
  */
-public class LabelDAO extends Foundation
+public class LabelClassification
 {
+    private String partOfSpeach;
+    private String token;
+    private Label  label;
 
-    private String id;
-    private Label name;
 
-
-    public LabelDAO()
+    public String getPartOfSpeach()
     {
-        registerListnersOfClass(this);
+
+        return partOfSpeach;
     }
 
 
-    public void save(Foundation label) {
+    public void setPartOfSpeach(String partOfSpeach)
+    {
 
+        this.partOfSpeach = partOfSpeach;
     }
 
 
-    /**
-     * Getters & Setters
-     */
-    public String getId()
+    public String getToken()
     {
 
-        return id;
+        return token;
     }
 
 
-    public void setId(String id)
+    public void setToken(String token)
     {
 
-        this.id = id;
+        this.token = token;
     }
 
 
-    public Label getName()
+    public Label getLabel()
     {
 
-        return name;
+        return label;
     }
 
 
-    public void setName(Label name)
+    public void setLabel(Label label)
     {
 
-        this.name = name;
+        this.label = label;
     }
 }

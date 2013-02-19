@@ -3,7 +3,7 @@ package org.goodeducation.physics;
 
 
 import org.foundation.Foundation;
-import org.foundation.ml.Label;
+import org.foundation.ml.nlp.Label;
 
 /**
  * Copyright (C) 2013 by Scott Byrns

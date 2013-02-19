@@ -1,4 +1,4 @@
-package org.foundation.ml;
+package org.foundation.ml.nlp;
 
 
 
@@ -9,6 +9,18 @@ import org.foundation.warehouse.ActivePersistenceImpl;
 import java.util.List;
 
 /**
+ * A label provides a plain english way of tagging information.
+ * <p/>
+ * Labels are required for each and every foundation in the form of a name.
+ * This places a requirement that every instance be identifiable as a unique agent.
+ * <p/>
+ * A label will be used to perform linguistic mapping of the foundation and all systems
+ * derived from it. This linguistic map will allow for autowiring of aspect messages
+ * between various agents in the system. The map will also provide a way of identifying
+ * the context in which an aspect message is being conveyed. In this way we can
+ * automatch second generation delegates to all aspect messages. This increases
+ * the probability of a message finding an outlet to share it's information.
+ * <p/>
  * Copyright (C) 2013 by Scott Byrns
  * http://github.com/scottbyrns
  * <p/>
@@ -50,18 +62,21 @@ public class Label extends Foundation
 
     public Label()
     {
+
         registerListnersOfClass(this);
     }
 
 
     public String getId()
     {
+
         return id;
     }
 
 
     public void setId(String id)
     {
+
         this.id = id;
     }
 
@@ -75,6 +90,7 @@ public class Label extends Foundation
 
     public void setValue(String value)
     {
+
         this.value = value;
     }
 
@@ -83,21 +99,23 @@ public class Label extends Foundation
      * Create a new label.
      *
      * @param value The value of the label.
+     *
      * @return A new label with teh provided value.
      */
     public static Label create(String value)
     {
 
-        Label label  = null;// ActivePersistenceImpl.getInstance().findByProperty(Label.class,
-                               //                                          "value",
-                                 //                                        value);
+        Label label = null;// ActivePersistenceImpl.getInstance().findByProperty(Label.class,
+        //                                          "value",
+        //                                        value);
 
 
-        if (label == null) {
+        if (label == null)
+        {
             label = new Label();
             label.setValue(value);
 
-//            ActivePersistenceImpl.getInstance().create(label);
+            //            ActivePersistenceImpl.getInstance().create(label);
         }
 
         label.setName(label);
@@ -105,21 +123,30 @@ public class Label extends Foundation
         return label;
     }
 
-    @Deprecated
-    public static <Foundational extends Foundation> Foundation getFoundationsByLabel (Class<? extends Foundation> type, String label) {
 
-        return ActivePersistenceImpl.getInstance().findByLabel(type, label);
+    @Deprecated
+    public static <Foundational extends Foundation> Foundation getFoundationsByLabel(Class<? extends Foundation> type, String label)
+    {
+
+        return ActivePersistenceImpl.getInstance().findByLabel(type,
+                                                               label);
 
     }
 
-    @Deprecated
-    public static <Foundational extends Foundation> List<Foundational> getFoundationsByLabel (String type, String label) {
 
-        return ActivePersistenceImpl.getInstance().findByLabel(type, label);
+    @Deprecated
+    public static <Foundational extends Foundation> List<Foundational> getFoundationsByLabel(String type, String label)
+    {
+
+        return ActivePersistenceImpl.getInstance().findByLabel(type,
+                                                               label);
 
     }
 
-    public Long getVersion() {
+
+    public Long getVersion()
+    {
+
         return 2L;
     }
 }

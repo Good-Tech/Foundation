@@ -5,7 +5,7 @@ package org.foundation.aop;
 import com.scottbyrns.utilities.FatalMappingException;
 import com.scottbyrns.utilities.JSONObjectMapper;
 import org.foundation.Foundation;
-import org.foundation.ml.Label;
+import org.foundation.ml.nlp.Label;
 import org.goodgod.controller.Message;
 import org.goodgod.controller.MessageHandler;
 import org.universe.Relationship;

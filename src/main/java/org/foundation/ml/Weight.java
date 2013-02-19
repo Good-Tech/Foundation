@@ -3,9 +3,6 @@ package org.foundation.ml;
 
 
 /**
- * Classify a label by a given tokens part of speech.
- *
- *
  * Copyright (C) 2013 by Scott Byrns
  * http://github.com/scottbyrns
  * <p/>
@@ -18,53 +15,38 @@ package org.foundation.ml;
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  * <p/>
- * Created 2/18/13 2:41 AM
+ * Created 2/19/13 12:48 AM
  */
-public class LabelClassification
+public class Weight
 {
-    private String partOfSpeach;
-    private String token;
-    private Label label;
+    private String id;
+    private double value;
 
 
-    public String getPartOfSpeach()
+    public String getId()
     {
 
-        return partOfSpeach;
+        return id;
     }
 
 
-    public void setPartOfSpeach(String partOfSpeach)
+    public void setId(String id)
     {
 
-        this.partOfSpeach = partOfSpeach;
+        this.id = id;
     }
 
 
-    public String getToken()
+    public double getValue()
     {
 
-        return token;
+        return value;
     }
 
 
-    public void setToken(String token)
+    public void setValue(double value)
     {
 
-        this.token = token;
-    }
-
-
-    public Label getLabel()
-    {
-
-        return label;
-    }
-
-
-    public void setLabel(Label label)
-    {
-
-        this.label = label;
+        this.value = value;
     }
 }

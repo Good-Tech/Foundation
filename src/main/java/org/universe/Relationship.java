@@ -4,7 +4,7 @@ package org.universe;
 
 import org.foundation.Foundation;
 import org.foundation.aop.InstanceRelationshipObserver;
-import org.foundation.ml.Label;
+import org.foundation.ml.nlp.Label;
 import org.goodgod.controller.Message;
 
 import javax.persistence.Entity;

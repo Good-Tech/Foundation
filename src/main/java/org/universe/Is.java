@@ -4,7 +4,7 @@ package org.universe;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.foundation.Foundation;
-import org.foundation.ml.Label;
+import org.foundation.ml.nlp.Label;
 
 import javax.persistence.Entity;
 

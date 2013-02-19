@@ -2,6 +2,7 @@ package org.foundation.ml;
 
 
 
+import org.foundation.ml.nlp.Label;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,9 +29,11 @@ public class LabelTest
 
     private Label label;
 
+
     @Before
     public void setUp() throws Exception
     {
+
         label = new Label();
     }
 
@@ -40,7 +43,8 @@ public class LabelTest
     {
 
         Label label = Label.create("Test Label");
-        assertNotNull("Our label should have been created.", label);
+        assertNotNull("Our label should have been created.",
+                      label);
 
     }
 
@@ -48,6 +52,7 @@ public class LabelTest
     @After
     public void tearDown() throws Exception
     {
+
         label = null;
     }
 }

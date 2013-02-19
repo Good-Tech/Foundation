@@ -3,7 +3,7 @@ package org.goodeducation.language;
 
 
 import org.foundation.Foundation;
-import org.foundation.ml.Label;
+import org.foundation.ml.nlp.Label;
 
 import java.util.List;
 
