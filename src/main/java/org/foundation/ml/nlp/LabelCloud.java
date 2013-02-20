@@ -209,40 +209,7 @@ public class LabelCloud
          * Grab all classifications containing the token and flatten it into a set.
          */
         List<LabelClassification> classifications = getClassificationsContaining(token);
-        Set<LabelClassification> set = new HashSet<LabelClassification>(classifications);
-
-        List<Integer> frequencies = new ArrayList<Integer>();
-
-        /**
-         * Get the classification that occurs the most in the list of classifications.
-         */
-        int freq = -1;
-        for (LabelClassification classification : set)
-        {
-            int val = Collections.frequency(classifications,
-                                            classification);
-            try
-            {
-                if (frequencies.get(freq) < val)
-                {
-                    freq = frequencies.size() - 1;
-                    frequencies.add(val);
-                }
-            }
-            catch (ArrayIndexOutOfBoundsException e)
-            {
-                freq = 0;
-                frequencies.add(val);
-            }
-        }
-
-        try {
-            return (LabelClassification)set.toArray()[freq];
-        }
-        catch (ArrayIndexOutOfBoundsException e) {
-            return null;
-        }
-
+        return ListAnalyzer.getInstance().getHighestFrequencyRepeatElement(classifications);
 
     }
 
@@ -267,58 +234,26 @@ public class LabelCloud
              * Get our classification and flatten them to a set to remove duplicate entries.
              */
             List<LabelClassification> classifications = getClassificationsContaining(token);
-            Set<LabelClassification> set = new HashSet<LabelClassification>(classifications);
+            LabelClassification classification = ListAnalyzer.getInstance().getHighestFrequencyRepeatElement(classifications);
 
-            List<Integer> fitness = new ArrayList<Integer>();
-
-
-            /**
-             * A value representing the index of the classification with the most hits.
-             */
-            int highestFrequency = -1;
-            for (LabelClassification classification : set)
-            {
-                /**
-                 * Get the frequency that the given classification occurs in our collection of classifications.
-                 */
-                int frequency = Collections.frequency(classifications,
-                                                      classification);
-                fitness.add(frequency);
-
-                try
-                {
-                    /**
-                     * If the frequency is greater than the frequency of the previously
-                     * recorded highest frequency classification then we replace
-                     * the existing index marker with the current index.
-                     */
-                    if (frequency > fitness.get(highestFrequency))
-                    {
-                        highestFrequency = fitness.size() - 1;
-                    }
-                }
-                catch (ArrayIndexOutOfBoundsException e)
-                {
-                    highestFrequency = fitness.size() - 1;
-                }
+            try {
+                similarLabels.add(classification.getLabel());
             }
-
-            try
-            {
-                /**
-                 * Add the highest frequency label for the classification to our output
-                 * list of similar labels.
-                 */
-                similarLabels.add(((LabelClassification) set.toArray()[highestFrequency]).getLabel());
+            catch (NullPointerException e) {
+                // Nothing relevant found.
             }
-            catch (ArrayIndexOutOfBoundsException e)
-            {
-                // No labels matched.
-            }
-
         }
 
         return similarLabels;
+    }
+
+
+    public Label getLabelMostLike(String statement)
+    {
+        List<Label> labels = getLabelsLike(statement);
+        Label label = ListAnalyzer.getInstance().getHighestFrequencyRepeatElement(labels);
+
+        return label;
     }
 
 

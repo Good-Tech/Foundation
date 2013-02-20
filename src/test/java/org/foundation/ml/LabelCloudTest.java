@@ -2,15 +2,18 @@ package org.foundation.ml;
 
 
 
+import com.scottbyrns.ml.neural.DefaultFeedForwardNeuralNetwork;
 import org.foundation.ml.nlp.Label;
 import org.foundation.ml.nlp.LabelClassification;
 import org.foundation.ml.nlp.LabelCloud;
 import org.junit.After;
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.Assert.assertNotNull;
 
 /**
  * Copyright (C) 2013 by Scott Byrns
@@ -29,10 +32,11 @@ import java.util.List;
  */
 public class LabelCloudTest
 {
-    @Before
-    public void setUp() throws Exception
+    @BeforeClass
+    public static void setUp() throws Exception
     {
 
+        textBlobToLabelList(nineafor);
     }
 
 
@@ -46,6 +50,10 @@ public class LabelCloudTest
     @Test
     public void testAddLabel() throws Exception
     {
+
+        DefaultFeedForwardNeuralNetwork neuralNetwork = new DefaultFeedForwardNeuralNetwork(3,
+                                                                                            new int[]{1},
+                                                                                            2);
 
     }
 
@@ -70,14 +78,31 @@ public class LabelCloudTest
 
     }
 
+
     public void testGetClassificationClosestTo() throws Exception
     {
-//        getClassificationClosestTo
+        //        getClassificationClosestTo
     }
 
-    @Test(timeout=1000000)
+
+    @Test
+    public void testGetLabelMostLike() throws Exception
+    {
+
+        System.out.println("\n" + "\nLABEL MOST LIKE");
+        System.out.println("--------------------------------------------");
+
+        System.out.println(LabelCloud.getInstance().getLabelMostLike("blue window").getValue());
+
+        System.out.println("\n");
+
+    }
+
+
+    @Test(timeout = 1000000)
     public void testGetLabelsLike() throws Exception
     {
+
         LabelCloud.getInstance().addLabel(Label.create("Hello world"));
         LabelCloud.getInstance().addLabel(Label.create("The quick brown fox jumps over the lazy dog."));
         LabelCloud.getInstance().addLabel(Label.create("What is happening my friend?"));
@@ -88,14 +113,13 @@ public class LabelCloudTest
         LabelCloud.getInstance().addLabel(Label.create("The capacitance of a dielectric is directly proportional to it's surface area and inversely proportional to it's thickness."));
         LabelCloud.getInstance().addLabel(Label.create("Full speed ahead captain."));
 
-        textBlobToLabelList(nineafor);
-
         List<Label> labelList = LabelCloud.getInstance().getLabelsLike("how are you today");
 
         System.out.println("\n\nLABELS LIKE");
         System.out.println("--------------------------------------------");
 
-        for (Label label : labelList) {
+        for (Label label : labelList)
+        {
             System.out.println(label.getValue());
             System.out.println("\n");
 
@@ -107,7 +131,11 @@ public class LabelCloudTest
 
         List<LabelClassification> classifications = LabelCloud.getInstance().getClassificationsContaining("voice");
 
-        for (LabelClassification label : classifications) {
+        assertNotNull("The classifications matching 'voice' should be numerous.",
+                      classifications);
+
+        for (LabelClassification label : classifications)
+        {
             System.out.println(label.getLabel().getValue());
             System.out.println("\n");
         }
@@ -118,23 +146,29 @@ public class LabelCloudTest
         System.out.println(LabelCloud.getInstance().getClassificationClosestTo("window").getLabel().getValue());
 
         System.out.println("\n");
+
+
     }
 
-    private static List<Label> textBlobToLabelList(String blob) {
+
+    private static List<Label> textBlobToLabelList(String blob)
+    {
+
         List<Label> labels = new ArrayList<Label>();
 
         String[] split = blob.split("\\.");
 
-        for (String str : split) {
+        for (String str : split)
+        {
             Label label = Label.create(str.toLowerCase());
             labels.add(label);
             LabelCloud.getInstance().addLabel(label);
         }
 
 
-
         return labels;
     }
+
 
     private static String nineafor = "It was a bright cold day in April, and the clocks were striking thirteen. Winston Smith, his chin nuzzled into his breast in an effort to escape the vile wind, slipped quickly through the glass doors of Victory Mansions, though not quickly enough to prevent a swirl of gritty dust from entering along with him. \n" +
             "\n" +
