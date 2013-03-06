@@ -2,7 +2,6 @@ package org.foundation;
 
 
 
-import org.codehaus.jackson.annotate.JsonIgnore;
 import org.foundation.ml.nlp.Label;
 import org.foundation.warehouse.ActivePersistenceImpl;
 import org.goodeducation.language.LevenshteinDistance;
@@ -16,7 +15,6 @@ import org.universe.Has;
 import org.universe.Is;
 import org.universe.Relationship;
 
-import javax.persistence.Entity;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -437,6 +435,15 @@ public abstract class Foundation extends MessageController
                     true);
     }
 
+    public <T extends Foundation> void says(String statement, T foundation) {
+        foundation.says(statement, this, false);
+        sendMessage(statement, Message.create(foundation));
+//        return says(statement, true);
+    }
+
+    public <T extends Foundation> void says(String statement, T foundation, boolean flag) {
+        sendMessage(statement, Message.create(foundation));
+    }
 
     public Prepositions says(String statement, boolean delegate)
     {

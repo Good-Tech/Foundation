@@ -1,11 +1,6 @@
-package org.foundation.ml;
+package org.foundation.aop;
 
 
-
-import com.scottbyrns.ml.neural.FeedForwardNeuralNetwork;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Copyright (C) 2013 by Scott Byrns
@@ -20,12 +15,17 @@ import java.util.List;
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  * <p/>
- * Created 2/6/13 10:13 PM
+ * Created 2/28/13 4:20 PM
  */
-public class DataSphere
+public class Input
 {
-    private List<FeedForwardNeuralNetwork> neuralNetworks = new ArrayList<FeedForwardNeuralNetwork>();
+
+    private Class type;
 
 
+    public Input(Class type)
+    {
 
+        this.type = type;
+    }
 }

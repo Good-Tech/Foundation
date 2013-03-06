@@ -248,6 +248,12 @@ public class LabelCloud
     }
 
 
+    /**
+     * Get the label most like the statement.
+     *
+     * @param statement
+     * @return
+     */
     public Label getLabelMostLike(String statement)
     {
         List<Label> labels = getLabelsLike(statement);

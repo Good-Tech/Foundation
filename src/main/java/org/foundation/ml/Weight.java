@@ -20,7 +20,7 @@ package org.foundation.ml;
 public class Weight
 {
     private String id;
-    private double value;
+    private double value = 0;
 
 
     public String getId()

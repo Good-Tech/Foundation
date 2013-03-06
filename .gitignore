@@ -9,3 +9,7 @@
 .idea/
 *.iml
 *.bin
+
+# Maven Files #
+target/
+target/*

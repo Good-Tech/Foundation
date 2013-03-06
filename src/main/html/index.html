@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+      HTML5: Simple Website Layout Tutorial Using HTML 5
+    </title>
+    <link rel="stylesheet" href="css/wrapper.css" type="text/css" />
+    
+  </head>
+  
+  <body>
+    <div id="wrapper">
+      
+      <header>
+        <hgroup>
+          <h1>
+            Collaborate
+          </h1>
+        </hgroup>
+        
+        
+        <datalist data-widget="application-controller" data-group="activity">
+          
+          <figure data-widget="entity-library" data-group="activity">
+          </figure>
+          <figure data-widget="personas" data-group="activity">
+          </figure>
+          <figure data-widget="activities" data-group="activity">
+          </figure>
+          <figure data-widget="tasks" data-group="activity">
+          </figure>
+          
+          <figure data-widget="navigation-logger" data-group="navigation">
+          </figure>
+          
+        </datalist>
+      </header>
+      
+      <article id="Foundation">
+        <section id="Activities" data-widget="activity-controller" data-group="activities">
+          <nav>
+            <h2 data-widget="activity-title" data-group="activities">
+              Current Activity
+            </h2>
+            <span data-widget="call-to-action-controls" data-group="call-to-action">
+              <button class="call-to-action">
+                Call To Action
+              </button>
+              <button class="passive-control">
+                Passive Control
+              </button>
+              <button class="active-control">
+                Active Control
+              </button>
+            </span>
+            
+          </nav>
+          <section id="entity-library" class="activity-view">
+            <datalist data-widget="call-to-action-configuration" data-group="call-to-action" data-for="entity-library">
+              
+              <figure data-label="Add Entity" data-action="add a new entity to the entity library" data-type="call-to-action" data-outbound-group="entity-library-controller">
+              </figure>
+              
+            </datalist>
+            
+            
+          </section>
+          
+          <section id="peronas" class="activity-view">
+            <datalist data-widget="call-to-action-configuration" data-group="call-to-action" data-for="personas">
+              
+              <figure data-label="Search Personas" data-action="search for personas" data-type="call-to-action" data-outbound-group="personas-controller">
+              </figure>
+              <figure data-label="Add Persona" data-action="add a persona" data-type="call-to-action" data-outbound-group="personas-controller">
+              </figure>
+              
+            </datalist>
+            
+            
+            
+          </section>
+          
+          <section id="activities" class="activity-view">
+            <datalist data-widget="call-to-action-configuration" data-group="call-to-action" data-for="activities">
+              
+              <figure data-label="Start Activity" data-action="start activity" data-type="call-to-action" data-outbound-group="activity-controller">
+              </figure>
+              
+              
+            </datalist>
+            
+            
+            
+          </section>
+          
+          <section id="tasks" class="activity-view">
+            <datalist data-widget="call-to-action-configuration" data-group="call-to-action" data-for="tasks">
+              
+              <figure data-label="Create Task" data-action="create a new task" data-type="call-to-action" data-outbound-group="personas-controller">
+              </figure>
+              <figure data-label="Edit Task" data-action="edit the currently selected task" data-type="call-to-action" data-outbound-group="personas-controller">
+              </figure>
+              
+            </datalist>
+            
+            <ul>
+              
+              
+            </ul>
+          </section>
+        </section>
+        <aside id="Tools">
+          <div id="tool-drawer-handler" data-widget="drawer-handle" data-group="activities">
+            .
+            <br />
+            .
+            <br />
+            .
+          </div>
+          
+          <nav data-widget="navigation-controller" data-group="activities">
+            <h3>
+              Tools
+            </h3>
+            <ul>
+              <li class="active" data-widget="event-trigger" data-event="click" data-message="go-to-entity-library" data-group="activities">
+                Entity Library
+              </li>
+              <li data-widget="event-trigger" data-event="click" data-message="go-to-personas" data-group="activities">
+                Personas
+              </li>
+              <li data-widget="event-trigger" data-event="click" data-message="go-to-activities" data-group="activities">
+                Activities
+              </li>
+              <li data-widget="event-trigger" data-event="click" data-message="go-to-tasks" data-group="activities">
+                Tasks
+              </li>
+            </ul>
+          </nav>
+        </aside>
+        
+      </article>
+      
+      <footer>
+        <p>
+          Collaborate &copy; Scott Byrns 2013
+        </p>
+      </footer>
+      
+    </div>
+    <!--End Wrapper-->
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+    </script>
+    <script src="js/lib/message.controller.js">
+    </script>
+    <script src="js/lib/live.widgets.js">
+    </script>
+    
+    
+    <script src="js/controller/application.controller.js">
+    </script>
+    
+    <!-- Widgets -->
+    <script src="js/views/canvas.js">
+    </script>
+    <script src="js/views/livespace.js">
+    </script>
+    <script src="js/views/slider.js">
+    </script>
+    <script src="js/views/callToActionControls.js">
+    </script>
+    
+    
+    <!--
+
+Controllers
+
+-->
+    <!-- Navigation Controller -->
+    <script src="js/controller/navigation.controller.js">
+    </script>
+    <script src="js/aspects/navigation.logger.js">
+    </script>
+    
+    <script src="js/controller/entity.library.controller.js">
+    </script>
+    
+    
+    
+  </body>
+</html>

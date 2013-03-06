@@ -2,11 +2,6 @@ package org.foundation.ml;
 
 
 
-import com.scottbyrns.ml.neural.FeedForwardNeuralNetwork;
-
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Copyright (C) 2013 by Scott Byrns
  * http://github.com/scottbyrns
@@ -20,11 +15,9 @@ import java.util.List;
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  * <p/>
- * Created 2/6/13 10:13 PM
+ * Created 2/21/13 3:09 AM
  */
-public class DataSphere
-{
-    private List<FeedForwardNeuralNetwork> neuralNetworks = new ArrayList<FeedForwardNeuralNetwork>();
+public class Knn {
 
 
 

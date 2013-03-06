@@ -4,6 +4,7 @@ package org.foundation.ml.nlp;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.foundation.Foundation;
+import org.foundation.ml.Weight;
 import org.foundation.warehouse.ActivePersistenceImpl;
 
 import java.util.List;
@@ -41,6 +42,8 @@ public class Label extends Foundation
     private String id;
 
     private String value;
+
+    private Weight weight;
 
     @JsonIgnore
     private Label name;
@@ -92,6 +95,20 @@ public class Label extends Foundation
     {
 
         this.value = value;
+    }
+
+
+    public Weight getWeight()
+    {
+
+        return weight;
+    }
+
+
+    public void setWeight(Weight weight)
+    {
+
+        this.weight = weight;
     }
 
 

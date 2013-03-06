@@ -3,9 +3,11 @@ package org.goodgod.controller;
 
 
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.foundation.Foundation;
 import org.foundation.framework.mcl.Controller;
 import org.foundation.ml.NLP;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.*;
 
@@ -41,7 +43,6 @@ public class MessageController implements Controller
 
     private Map<String, List<ScopedMethod>> getMethods()
     {
-
         return methods;
     }
 
@@ -154,12 +155,126 @@ public class MessageController implements Controller
      * @param clazz   The class to register callbacks for.
      * @param context The execution context to run class listeners in.
      */
-    public void registerListenersOfClass(Class clazz, Object context)
+    public void registerListenersOfClass(Class clazz, final Object context)
     {
 
         Method[] clazzMethods = clazz.getMethods();
         for (Method method : clazzMethods)
         {
+
+            final Action action = method.getAnnotation(Action.class);
+            final Statement statement = method.getAnnotation(Statement.class);
+            final When when = method.getAnnotation(When.class);
+
+
+            if (null != action) {
+                MessageHandler mhandler = new MessageHandler() {
+                    @Override
+                    public String channel()
+                    {
+                        if (context instanceof Foundation) {
+                           return  ((Foundation) context).getId();
+                        }
+                        return "";
+                    }
+
+
+                    @Override
+                    public String group()
+                    {
+                        return action.name();
+                    }
+
+
+                    @Override
+                    public String documentation()
+                    {
+                        return action.documentation();
+                    }
+
+
+                    @Override
+                    public Class<? extends Annotation> annotationType()
+                    {
+                        return MessageHandler.class;
+                    }
+                };
+
+                registerListener(mhandler, method, context);
+            }
+
+            if (null != statement) {
+                MessageHandler mhandler = new MessageHandler() {
+                    @Override
+                    public String channel()
+                    {
+                        if (context instanceof Foundation) {
+                           return  ((Foundation) context).getId();
+                        }
+                        return "";
+                    }
+
+
+                    @Override
+                    public String group()
+                    {
+                        return statement.name();
+                    }
+
+
+                    @Override
+                    public String documentation()
+                    {
+                        return statement.documentation();
+                    }
+
+
+                    @Override
+                    public Class<? extends Annotation> annotationType()
+                    {
+                        return MessageHandler.class;
+                    }
+                };
+
+                registerListener(mhandler, method, context);
+            }
+
+            if (null != when) {
+                MessageHandler mhandler = new MessageHandler() {
+                    @Override
+                    public String channel()
+                    {
+                        if (context instanceof Foundation) {
+                           return  ((Foundation) context).getId();
+                        }
+                        return "";
+                    }
+
+
+                    @Override
+                    public String group()
+                    {
+                        return when.name();
+                    }
+
+
+                    @Override
+                    public String documentation()
+                    {
+                        return when.documentation();
+                    }
+
+
+                    @Override
+                    public Class<? extends Annotation> annotationType()
+                    {
+                        return MessageHandler.class;
+                    }
+                };
+
+                registerListener(mhandler, method, context);
+            }
+
             MessageHandler messageHandler = method.getAnnotation(MessageHandler.class);
             if (null == messageHandler)
             {

@@ -8,7 +8,7 @@
 
     <groupId>org.good.tech.Foundation</groupId>
     <artifactId>Foundation</artifactId>
-    <version>1.0.06-SNAPSHOT</version>
+    <version>1.0.09-SNAPSHOT</version>
 
 
     <name>
@@ -107,6 +107,18 @@
             <artifactId>ml</artifactId>
             <version>1.0.00-SNAPSHOT</version>
         </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>org.good</groupId>-->
+            <!--<artifactId>Education</artifactId>-->
+            <!--<version>1.0.06-SNAPSHOT</version>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>org.good.tech</groupId>-->
+            <!--<artifactId>FarmMap-Entities</artifactId>-->
+            <!--<version>1.0.00-SNAPSHOT</version>-->
+        <!--</dependency>-->
 
 
         <dependency>
